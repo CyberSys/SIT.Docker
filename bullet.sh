@@ -26,7 +26,7 @@ if [ ! -e "/opt/server/version" ] || [ ! -z "$FORCE" ]; then
     echo "$SIT_VERSION" > /opt/server/version
     if [[ -z $HEADLESS ]]; then
       echo "SIT.Docker setup is now complete!"
-      echo "You can configure and start your container now."
+      echo "You can configure and start your container."
       exit 0
     fi
   fi

@@ -14,9 +14,9 @@ RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selectio
 WORKDIR /opt
 
 RUN apt update && apt install -yq git git-lfs curl
-RUN git clone https://github.com/nvm-sh/nvm.git $HOME/.nvm || true
+RUN git clone https://github.com/nvm-sh/nvm.git $HOME/.nvm
 RUN \. $HOME/.nvm/nvm.sh && nvm install $NODE
-RUN git clone --branch $SPT_BRANCH https://dev.sp-tarkov.com/SPT-AKI/Server.git srv || true
+RUN git clone --branch $SPT_BRANCH https://dev.sp-tarkov.com/SPT-AKI/Server.git srv
 
 WORKDIR /opt/srv/project
 RUN git checkout $SPT
