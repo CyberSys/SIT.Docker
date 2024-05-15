@@ -18,24 +18,25 @@ Platform independent.
 
    ```mkdir server```
 5. Build:
-   Equivalent to release `SITCoop-1.6.4-WithAki-3.8.0-2dd4d9 (0.14.1.3.29351)`:
+   Equivalent to (pre)release `SITCoop-1.6.5-WithAki-3.8.3-449288`:
    ##### Running on Linux:
    ```bash
    docker build \
       --no-cache \
-      --build-arg SIT=26b9c364963ba49de71d5761bed1135ddad50f77  \
-      --build-arg SPT=2dd4d914382657378d9cdec173039d771fe33220 \
+      --build-arg SIT=a728b0b1ff21b14774362418d35f14ec523265cc \
+      --build-arg SPT=4492882bba506f5751a1f600f3ae60275ad27e64 \
       --label SITCoop \
       -t sitcoop .
    ```
    ##### Running on Windows:
    ```bash
-   docker build --no-cache --build-arg SIT=26b9c364963ba49de71d5761bed1135ddad50f77 --build-arg SPT=2dd4d914382657378d9cdec173039d771fe33220 --label SITCoop -t sitcoop .
+   docker build --no-cache --build-arg SIT=a728b0b1ff21b14774362418d35f14ec523265cc --build-arg SPT=4492882bba506f5751a1f600f3ae60275ad27e64 --label SITCoop -t sitcoop .
    ```
-
+   
    > For version SITCoop-1.5.1 (0.13.9.1.27622), go [here](https://github.com/stayintarkov/SIT.Docker/tree/82727f8dea553a5294b321590d933d9722c26b53)
 
 6. Run the image once, to populate server folder:
+> ⚠️ IF UPGRADING, use `docker run -e FORCE=y [..rest of the command..]`
    ```bash
    docker run --pull=never -v $PWD/server:/opt/server -p 6969:6969 -p 6970:6970 -p 6971:6971 -it --name sitcoop sitcoop
    ```
@@ -49,7 +50,7 @@ Platform independent.
    > 
    > You can specify `-p 192.168.12.34:6969:6969` for each port if you don't want it to listen on all interfaces. 
 
-7. Start your server (and enable auto restart):
+8. Start your server (and enable auto restart):
  ```bash
 docker start sitcoop
 docker update --restart unless-stopped sitcoop
